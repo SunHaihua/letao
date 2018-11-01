@@ -48,19 +48,15 @@
     <script>
         $('form').on('submit', function (){
             var data = $(this).serialize();
-            
             $.ajax({
-                url: 'http://localhost:3000/user/login',
+                url: '/api/user/login',
                 type: 'post',
                 data: data,
-                xhrFields: {
-                    withCredentials: true,
-                },
+                // xhrFields: {
+                //     withCredentials: true,
+                // },
                 success: function (info) {
-                    console.log(info);
-                    if(info.success){
-                        location.href = '../index.html';
-                    }
+                    location.href = '../index.html';
                 }
             })
 
